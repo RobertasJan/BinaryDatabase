@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BinaryDatabase.Serialization\BinaryDatabase.Serialization.csproj" />
+    <ProjectReference Include="..\BinaryDatabase.Structures\BinaryDatabase.Structures.csproj" />
+  </ItemGroup>
+
+</Project>

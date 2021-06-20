@@ -1,0 +1,76 @@
+﻿@model IEnumerable<Tuple<string, BinaryDatabase.ExampleWeb.Models.Song>>
+<h3>Song list</h3>
+<table>
+    <thead>
+        <tr>
+            @*<th>
+                    Id
+                </th>*@
+            <th>
+                Name
+            </th>
+            <th>
+                Author
+            </th>
+            <th>Length (seconds)</th>
+            <th>
+                Release date
+            </th>
+            <th>
+                AlbumName
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var i in Model)
+        {
+            <tr>
+                @*<td>
+                        @i.Item2.Id
+                    </td>*@
+                <td>
+                    @i.Item2.Name
+                </td>
+                <td>
+                    @i.Item2.Author
+                </td>
+                <td>
+                    @i.Item2.Length
+                </td>
+                <td>
+                    @i.Item2.ReleaseDate.ToShortDateString()
+                </td>
+                <td>
+                    @i.Item2.AlbumName
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<br />
+<label>Search by name:</label>
+<input type="text" id="Search" />
+<h4 id="Id"></h4>
+<h4 id="Name"></h4>
+<h4 id="Author"></h4>
+<h4 id="Length"></h4>
+<h4 id="ReleaseDate"></h4>
+<h4 id="AlbumName"></h4>
+
+@section scripts{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#Search").keyup(function () {
+                $.get("@Url.Action("Get", "Song")?songName=" + $("#Search").val(), function (data) {
+                    $("#Id").html(data.id);
+                    $("#Name").html(data.name);
+                    $("#Author").html(data.author);
+                    $("#Length").html(data.length);
+                    $("#ReleaseDate").html(data.releaseDate);
+                    $("#AlbumName").html(data.albumName);
+                });
+            });
+        });
+
+    </script>
+}
