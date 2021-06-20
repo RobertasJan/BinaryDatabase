@@ -108,15 +108,15 @@ namespace BinaryDatabase
                 Name = "Zitti e buoni",
                 ReleaseDate = new DateTime(2021, 05, 03)
             });
-            //var binSerializer = new BinarySerializer();
-            //binSerializer.Serialize(songTree, "DataObj.data");
+            var binSerializer = new BinarySerializer();
+            binSerializer.Serialize(songTree, "DataObj.data");
 
-            //var treeObj = (BinaryTree<string, Song>)binSerializer.Deserialize("DataObj.data");
+            var treeObj = (BinaryTree<string, Song>)binSerializer.Deserialize("DataObj.data");
 
-            //foreach (var value in treeObj.AsEnumerable())
-            //{
-            //    Console.WriteLine(value.Item1);
-            //}
+            foreach (var value in treeObj.AsEnumerable())
+            {
+                Console.WriteLine(value.Item1);
+            }
             foreach (var value in songTree.AsEnumerable())
             {
                 Console.WriteLine(value.Item1);
