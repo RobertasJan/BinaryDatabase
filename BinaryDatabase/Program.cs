@@ -117,10 +117,18 @@ namespace BinaryDatabase
             {
                 Console.WriteLine(value.Item1);
             }
+            Console.WriteLine("---------------------------");
+
             foreach (var value in songTree.AsEnumerable())
             {
                 Console.WriteLine(value.Item1);
             }
+            Console.WriteLine("---------------------------");
+
+            var song = treeObj.Find("zit");
+            Console.WriteLine(song.Name);
+            Console.WriteLine(song.Author);
+            Console.ReadLine();
         }
     }
 }
